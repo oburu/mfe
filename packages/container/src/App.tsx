@@ -4,7 +4,7 @@ import { MarketingMF } from './Components/MarketingMF';
 export function App() {
   return (
     <div>
-      <h1>hola huesos!!</h1>
+      <h1>hola huesositos!!</h1>
       <hr />
       <MarketingMF />
     </div>
