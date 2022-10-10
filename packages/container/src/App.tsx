@@ -12,8 +12,10 @@ export function App() {
   return (
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
-        <Header signedIn={false} onSignOut={console.log} />
-        <MarketingMF />
+        <div>
+          <Header signedIn={false} onSignOut={console.log} />
+          <MarketingMF />
+        </div>
       </StylesProvider>
     </BrowserRouter>
   );
