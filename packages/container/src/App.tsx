@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { MarketingMF } from './Components/MarketingMF';
+import { BrowserRouter } from 'react-router-dom';
+import { MarketingMF } from './components/MarketingMF';
+import { Header } from './components/Header';
 
 export function App() {
   return (
-    <div>
-      <h1>hola huesositos!!</h1>
-      <hr />
-      <MarketingMF />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Header signedIn={false} onSignOut={console.log} />
+        <MarketingMF />
+      </div>
+    </BrowserRouter>
   );
 }
