@@ -6,10 +6,12 @@ import { App } from './App';
 export type Mount = {
   el: Element;
   onNavigate?: (location: Location) => void;
-  history?: History<unknown>;
+  defaultHistory?: History<unknown>;
 };
 
-export function mount({ el, onNavigate, history = createMemoryHistory() }: Mount) {
+export function mount({ el, onNavigate, defaultHistory }: Mount) {
+  const history = defaultHistory || createMemoryHistory();
+
   onNavigate && history.listen(onNavigate);
 
   ReactDOM.render(<App history={history} />, el);
@@ -26,6 +28,6 @@ if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#marketing_dev_root');
 
   if (devRoot) {
-    mount({ el: devRoot, history: createBrowserHistory() });
+    mount({ el: devRoot, defaultHistory: createBrowserHistory() });
   }
 }

@@ -14,13 +14,17 @@ export function MarketingMF() {
   }
 
   React.useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+
     const { onParentNavigate } = mount({
       el: ref.current,
       onNavigate,
     });
 
     history.listen(onParentNavigate);
-  }, []);
+  }, [ref]);
 
   return <div ref={ref} />;
 }
