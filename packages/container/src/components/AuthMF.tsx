@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { mount } from 'marketing/MarketingMF';
+import { mount } from 'auth/AuthMF';
 import { useHistory } from 'react-router-dom';
 import { Location } from 'history';
 
-function MarketingMF() {
+function AuthMF() {
   const ref = React.useRef<HTMLDivElement>(null);
   const history = useHistory();
 
@@ -32,4 +32,4 @@ function MarketingMF() {
   return <div ref={ref} />;
 }
 
-export default MarketingMF;
+export default AuthMF;

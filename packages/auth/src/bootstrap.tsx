@@ -30,9 +30,9 @@ export function mount({ el, onNavigate, defaultHistory, initialPath }: Mount) {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#marketing_dev_root');
+  const devRoot = document.querySelector('#auth_dev_root');
 
   if (devRoot) {
-    mount({ el: devRoot, defaultHistory: createBrowserHistory(), initialPath: '/' });
+    mount({ el: devRoot, defaultHistory: createBrowserHistory(), initialPath: '/auth/signin' });
   }
 }

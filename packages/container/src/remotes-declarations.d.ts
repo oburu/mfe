@@ -6,3 +6,4 @@
 //   export { mount };
 // }
 declare module 'marketing/MarketingMF';
+declare module 'auth/AuthMF';
