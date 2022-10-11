@@ -18,12 +18,7 @@ export function MarketingMF() {
       return;
     }
 
-    // hacking the types of mount
-    type MarketingMountProps = typeof import('../../../marketing/src/bootstrap').mount;
-
-    const MarketingMount: MarketingMountProps = mount;
-
-    const { onParentNavigate } = MarketingMount({
+    const { onParentNavigate } = mount({
       el: ref.current,
       onNavigate,
     });
