@@ -1,7 +1,8 @@
-declare module 'marketing/MarketingMF' {
-  type MountProps = typeof import('../../marketing/src/bootstrap').mount;
+// declare module 'marketing/MarketingMF' {
+//   type MountProps = typeof import('../../marketing/src/bootstrap').mount;
 
-  const mount: MountProps;
+//   const mount: MountProps;
 
-  export { mount };
-}
+//   export { mount };
+// }
+declare module 'marketing/MarketingMF';
