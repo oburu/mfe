@@ -7,11 +7,9 @@ function AuthMF() {
   const ref = React.useRef<HTMLDivElement>(null);
   const history = useHistory();
 
-  function onNavigate<T extends Location>({ pathname: nextPathname }: T) {
-    const { pathname } = history.location;
-
-    if (pathname !== nextPathname) {
-      history.push(nextPathname);
+  function onNavigate<T extends Location>({ pathname }: T) {
+    if (history.location.pathname !== pathname) {
+      history.push(pathname);
     }
   }
 

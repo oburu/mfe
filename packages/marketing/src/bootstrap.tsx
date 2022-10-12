@@ -32,7 +32,9 @@ export function mount({ el, onNavigate, defaultHistory, initialPath }: Mount) {
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#marketing_dev_root');
 
+  const history = createBrowserHistory();
+
   if (devRoot) {
-    mount({ el: devRoot, defaultHistory: createBrowserHistory(), initialPath: '/' });
+    mount({ el: devRoot, defaultHistory: history, initialPath: history.location.pathname });
   }
 }

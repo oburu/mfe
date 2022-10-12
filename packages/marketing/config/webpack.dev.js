@@ -11,7 +11,7 @@ const devConfig = {
     publicPath: `http://localhost:${MF_PORT}/`,
   },
   devServer: {
-    port: 8081,
+    port: MF_PORT,
     historyApiFallback: {
       index: '/index.html',
     },
