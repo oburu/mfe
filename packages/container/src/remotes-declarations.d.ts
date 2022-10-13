@@ -7,3 +7,4 @@
 // }
 declare module 'marketing/MarketingMF';
 declare module 'auth/AuthMF';
+declare module 'dashboard/DashboardMF';
