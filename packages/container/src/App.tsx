@@ -12,18 +12,32 @@ const generateClassName = createGenerateClassName({
 });
 
 export function App() {
+  const [isSignIn, setIsSignIn] = React.useState(false);
+
+  const handleSignIn = () => {
+    setIsSignIn(true);
+  };
+
+  const handleSignOut = () => {
+    setIsSignIn(false);
+  };
+
   return (
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
-        <div>
-          <Header signedIn={false} onSignOut={console.log} />
+        <React.Fragment>
+          <Header isSignIn={isSignIn} onSignOut={handleSignOut} />
           <React.Suspense fallback={<Progress />}>
             <Switch>
-              <Route path="/auth" component={AuthLazy} />
-              <Route path="/" component={MarketingLazy} />
+              <Route path="/auth">
+                <AuthLazy onSignIn={handleSignIn} />
+              </Route>
+              <Route path="/">
+                <MarketingLazy onSignIn={handleSignIn} />
+              </Route>
             </Switch>
           </React.Suspense>
-        </div>
+        </React.Fragment>
       </StylesProvider>
     </BrowserRouter>
   );

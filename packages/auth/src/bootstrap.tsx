@@ -8,9 +8,10 @@ export type Mount = {
   onNavigate?: (location: Location) => void;
   defaultHistory?: History<unknown>;
   initialPath: string;
+  onSignIn: () => void;
 };
 
-export function mount({ el, onNavigate, defaultHistory, initialPath }: Mount) {
+export function mount({ el, onNavigate, defaultHistory, initialPath, onSignIn }: Mount) {
   const history =
     defaultHistory ||
     createMemoryHistory({
@@ -19,7 +20,7 @@ export function mount({ el, onNavigate, defaultHistory, initialPath }: Mount) {
 
   onNavigate && history.listen(onNavigate);
 
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App onSignIn={onSignIn} history={history} />, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }: Location) {
@@ -35,6 +36,11 @@ if (process.env.NODE_ENV === 'development') {
   const history = createBrowserHistory();
 
   if (devRoot) {
-    mount({ el: devRoot, defaultHistory: history, initialPath: history.location.pathname });
+    mount({
+      el: devRoot,
+      defaultHistory: history,
+      initialPath: history.location.pathname,
+      onSignIn: console.log,
+    });
   }
 }

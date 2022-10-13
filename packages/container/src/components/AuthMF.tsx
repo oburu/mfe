@@ -3,7 +3,9 @@ import { mount } from 'auth/AuthMF';
 import { useHistory } from 'react-router-dom';
 import { Location } from 'history';
 
-function AuthMF() {
+type AuthMFProps = { onSignIn: () => void };
+
+function AuthMF({ onSignIn }: AuthMFProps) {
   const ref = React.useRef<HTMLDivElement>(null);
   const history = useHistory();
 
@@ -22,6 +24,7 @@ function AuthMF() {
       el: ref.current,
       onNavigate,
       initialPath: history.location.pathname,
+      onSignIn,
     });
 
     history.listen(onParentNavigate);
